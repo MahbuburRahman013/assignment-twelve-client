@@ -37,7 +37,7 @@ const Banner = () => {
                     </div>
                   </div>
             </div>
-            <div className='w-1/2 shadow-lg shadow-blue-700 rounded-lg'>
+            <div className='w-1/2  shadow-lg shadow-blue-700 rounded-lg'>
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -52,13 +52,16 @@ const Banner = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img className='w-full rounded-lg' src="https://mapartments.co.uk/uploads/transforms/b235c4646ab36ef9ae959de20fa459fc/11257/401_topRenders_b_7abbbb2796f27c91ef535646dc2c5299.webp" alt="" />
+                        <img className='w-full h-full rounded-lg' src="https://i.ibb.co/dm4P1Vc/633d198512b3667b11eed9e5-Hero-Harmony-Heights.jpg" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className='w-full rounded-lg' src="https://mapartments.co.uk/uploads/transforms/b235c4646ab36ef9ae959de20fa459fc/11257/401_topRenders_b_7abbbb2796f27c91ef535646dc2c5299.webp" alt="" />
+                        <img className='w-full h-full rounded-lg' src="https://i.ibb.co/fq1N9HY/100-0071-1024x768.jpg" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className='w-full rounded-lg' src="https://mapartments.co.uk/uploads/transforms/b235c4646ab36ef9ae959de20fa459fc/11257/401_topRenders_b_7abbbb2796f27c91ef535646dc2c5299.webp" alt="" />
+                        <img className='w-full h-full rounded-lg' src="https://i.ibb.co/Gv1VzT7/3fa761c918b724afc72dfc1712bad14c-full.jpg" alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='w-full h-full rounded-lg' src="https://i.ibb.co/TYCNVKS/100-0068-1024x768.jpg" alt="" />
                     </SwiperSlide>
                 </Swiper>
             </div>

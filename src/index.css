@@ -15,3 +15,7 @@
 .anim {
     animation: bounce 3s infinite;
 }
+
+.selected{
+    background-color: rgb(43, 226, 202);
+}

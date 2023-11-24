@@ -54,31 +54,7 @@
         "blockName": "A",
         "apartmentNo": 702,
         "rent": 1700
-      },
-      {
-        "id": 8,
-        "apartmentImage": "url-to-image-8.jpg",
-        "floorNo": 2,
-        "blockName": "B",
-        "apartmentNo": 202,
-        "rent": 1250
-      },
-      {
-        "id": 9,
-        "apartmentImage": "url-to-image-9.jpg",
-        "floorNo": 5,
-        "blockName": "C",
-        "apartmentNo": 501,
-        "rent": 1550
-      },
-      {
-        "id": 10,
-        "apartmentImage": "url-to-image-10.jpg",
-        "floorNo": 3,
-        "blockName": "A",
-        "apartmentNo": 301,
-        "rent": 1150
       }
-      
+    
     ]
   
