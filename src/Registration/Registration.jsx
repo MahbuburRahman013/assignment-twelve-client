@@ -1,7 +1,21 @@
+import { updateProfile } from "firebase/auth";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import {Link} from 'react-router-dom'
+import {Link , useNavigate} from 'react-router-dom'
+import { ContextProvider } from "../auth/AuthProvider";
+import auth from "../firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+
+
+const IMG_HOASTING_KEY = import.meta.env.VITE_IMAGE_UPLOAD_API;
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${IMG_HOASTING_KEY}`
 
 const Registration = () => {
+
+    const axiosPublic = useAxiosPublic();
+    const {createUser} = useContext(ContextProvider);
+    const navigate = useNavigate()
+    
 
     const {
         register,
@@ -9,16 +23,53 @@ const Registration = () => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => {
-        console.log(data)
+
+    const onSubmit =async (data) => {
+        const imgFile = { image: data.photo[0] }
+        const res = await axiosPublic.post(img_hosting_api, imgFile, {
+            headers: {
+                'Content-Type': "multipart/form-data"
+            }
+        })
+        const img_url = res?.data?.data?.display_url;
+        if(img_url){
+            createUser(data.email, data.password)
+            .then(result=> {
+                if(result.user){
+                     updateProfile(auth.currentUser, {
+                        displayName: data.username,
+                        photoURL: img_url,
+                     })
+                     .then(()=> {
+
+                        axiosPublic.post('/user', {email: result?.user?.email, name: result?.user?.displayName, role: 'user'})
+                        .then(res=> {
+                             if(res.data.acknowledged){
+                                alert('user create successfully!')
+                                navigate('/')
+                             }
+                        }) 
+                        
+                     })
+                     .catch(error=> {
+                        alert(error.message)
+                     })
+                }
+            })
+            .catch(error=> {
+                alert(error.message);
+            })
+        }
     }
+
+    
 
     return (
         <div className="flex justify-between">
             <div className="w-[50%] flex justify-center items-center">
 
                 <form className="bg-white w-[70%]  p-8 shadow-lg rounded-lg" onSubmit={handleSubmit(onSubmit)}>
-                    <h2 className="text-2xl font-bold mb-4">Login</h2>
+                    <h2 className="text-2xl font-bold mb-4">Registration</h2>
 
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">Username</label>
@@ -71,16 +122,10 @@ const Registration = () => {
                     <div className="flex justify-between">
                         <button
                             type="submit"
-                            className=" w-[45%] border border-blue-600 hover:text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                            className=" w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                         >
                             Sing Up
                         </button>
-                        <div
-                            className="w-[45%] text-center border border-orange-600 hover:text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-                        >
-                            Google
-                        </div>
-
                     </div>
                     <h1 className="mt-5">Do You Have Any Account? <Link className="text-blue-700 underline" to='/login'>Login</Link></h1>
                 </form>

@@ -1,14 +1,18 @@
-import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom'
+import { ContextProvider } from '../auth/AuthProvider';
 import Dropdown from './Dropdown';
+import { FaRegUserCircle } from "react-icons/fa";
 
 
 const Navbar = () => {
 
-
-const navbar = <>
-     <li><Link to='/'>Home</Link></li>
-     <li><Link to='/apartment'>Apartment</Link></li>
-</>
+    const { user } = useContext(ContextProvider);
+    
+    const navbar = <>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/apartment'>Apartment</Link></li>
+    </>
 
 
     return (
@@ -30,18 +34,29 @@ const navbar = <>
                             <ul className="menu menu-horizontal uppercase text-xl font-semibold">
                                 {navbar}
                             </ul>
-                            <Dropdown mar={'right-0'} marTop={'mt-9'}></Dropdown>
+
+                            {
+                                user ? <Dropdown  mar={'right-0'} marTop={'mt-9'}></Dropdown> :
+                                    <Link to='/login'>
+                                        <FaRegUserCircle className="text-3xl text-[#0766AD]" ></FaRegUserCircle>
+                                    </Link>
+                            }
                         </div>
                     </div>
                     {/* Page content here */}
-                   
+
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full uppercase text-xl font-semibold bg-base-200">
                         {navbar}
                         <div className='ml-4'>
-                        <Dropdown mar={'left-7'} marTop={'mt-3'}></Dropdown>
+                            {
+                                user ? <Dropdown  mar={'right-0'} marTop={'mt-9'}></Dropdown> :
+                                    <Link to='/login'>
+                                        <FaRegUserCircle className="text-3xl text-[#0766AD]" ></FaRegUserCircle>
+                                    </Link>
+                            }
                         </div>
                     </ul>
                 </div>

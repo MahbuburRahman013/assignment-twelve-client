@@ -1,20 +1,33 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { FaRegUserCircle } from "react-icons/fa";
 import {Link} from 'react-router-dom';
+import { ContextProvider } from "../auth/AuthProvider";
 
 const Dropdown = ({marTop, mar}) => {
     const [isShow, setIsShow] = useState(false);
+    const {logOutUser , user} = useContext(ContextProvider);
+
+
+
+const handleLogout = () => {
+     logOutUser()
+     .then(()=>{
+          alert('sign out successfully')
+     })
+}
+
     return (
         <div>
             <div className="cursor-pointer">
-            <FaRegUserCircle className="text-3xl text-[#0766AD]" onClick={()=> setIsShow(!isShow)}></FaRegUserCircle>
+                <img onClick={()=> setIsShow(!isShow)} className="w-8 h-8 border-2 border-blue-500 rounded-full" src={user?.photoURL} alt="" />
+            
             </div>
             {
                 isShow && <div className={`shadow-lg rounded-md z-10 bg-white absolute px-8 py-2  ${mar} ${marTop}`}>
-                    <div className="py-1 font-semibold">Mahbub Rahman</div>
+                    <div className="py-1 font-semibold">{user?.displayName}</div>
                     <div className="py-1 font-bold"><Link>Dashboard</Link></div>
                     <div className="py-1 font-bold">
-                        <Link to='/login'>Login</Link>
+                        <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
             }

@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import {Link} from 'react-router-dom'
+import {Link , useNavigate} from 'react-router-dom'
+import { ContextProvider } from "../auth/AuthProvider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 const Login = () => {
+    const {signInUser , signInGoogle} = useContext(ContextProvider);
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate()
 
     const {
         register,
@@ -11,7 +17,39 @@ const Login = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data)
+
+        signInUser(data.email, data.password)
+        .then(result=> {
+            console.log(result.user);
+            alert('sign in successfully')
+            navigate('/');
+        })
+        .catch(error=> {
+            console.log(error.message);
+            alert(error.message);
+        })
+        
+    };
+
+    const handleGoogle = () => {
+
+          signInGoogle()
+          .then(result=> {
+            if(result.user){
+                axiosPublic.post('/user', {email: result.user.email, name: result.user.displayName, role: 'user'})
+                .then(res=> {
+                     if(res.data){
+                        alert('sign in successfully')
+                        navigate('/')
+                     }
+                }) 
+            }
+           
+          })
+          .catch(error=> {
+            console.log(error);
+            alert(error.message);
+          })
     }
 
     return (
@@ -55,7 +93,7 @@ const Login = () => {
                     >
                         Login
                     </button>
-                    <div
+                    <div onClick={handleGoogle}
                         className="w-[45%] text-center border border-orange-600 hover:text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                     >
                         Google
