@@ -1,6 +1,6 @@
  [
       {
-        "id": 1,
+        "id": "a",
         "apartmentImage": "url-to-image-1.jpg",
         "floorNo": 2,
         "blockName": "A",
@@ -8,7 +8,7 @@
         "rent": 1200
       },
       {
-        "id": 2,
+        "id": "b",
         "apartmentImage": "url-to-image-2.jpg",
         "floorNo": 5,
         "blockName": "B",
@@ -16,7 +16,7 @@
         "rent": 1500
       },
       {
-        "id": 3,
+        "id": "c",
         "apartmentImage": "url-to-image-3.jpg",
         "floorNo": 3,
         "blockName": "C",
@@ -24,7 +24,7 @@
         "rent": 1100
       },
       {
-        "id": 4,
+        "id": "d",
         "apartmentImage": "url-to-image-4.jpg",
         "floorNo": 8,
         "blockName": "A",
@@ -32,7 +32,7 @@
         "rent": 1800
       },
       {
-        "id": 5,
+        "id": "e",
         "apartmentImage": "url-to-image-5.jpg",
         "floorNo": 4,
         "blockName": "B",
@@ -40,7 +40,7 @@
         "rent": 1300
       },
       {
-        "id": 6,
+        "id": "f",
         "apartmentImage": "url-to-image-6.jpg",
         "floorNo": 6,
         "blockName": "C",
@@ -48,7 +48,7 @@
         "rent": 1600
       },
       {
-        "id": 7,
+        "id": "g",
         "apartmentImage": "url-to-image-7.jpg",
         "floorNo": 7,
         "blockName": "A",

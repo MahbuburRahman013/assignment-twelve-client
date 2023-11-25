@@ -1,7 +1,47 @@
-import { FaBed, FaBath, FaSquare, FaMoneyBillAlt } from 'react-icons/fa';
+import { useContext } from 'react';
+import { FaMoneyBillAlt } from 'react-icons/fa';
+import { ContextProvider } from '../auth/AuthProvider';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const ApartCard = ({ apartment }) => {
-    const { apartmentImage, apartmentNo, blockName, floorNo, rent } = apartment;
+    const { apartmentImage, apartmentNo, blockName, floorNo, rent , id } = apartment;
+    const axiosSecure = useAxiosSecure()
+    const {user} = useContext(ContextProvider);  
+    
+
+const handleAddApartment = () =>{
+    
+   
+    if(!user?.email){
+          return alert('You are not login user!')
+    }
+
+      
+    const apartmentData = {
+        floorNo,
+        blockName,
+        apartmentNo,
+        id,
+        rent,
+        status: 'pending',
+        userName: user?.displayName,
+        useEmail: user?.email, 
+    }
+   
+    axiosSecure.post(`/apartment`, apartmentData)
+    .then(res=> {
+        
+        if(res?.data?.acknowledged){
+            alert('added successfully')
+        }
+        if(res?.data?.message){
+            alert('already added')
+        }
+        console.log(res.data)
+    })
+    
+}
+
 
     return (
         <div>
@@ -27,7 +67,7 @@ const ApartCard = ({ apartment }) => {
                 </div>
 
                 <div className="px-6 py-4">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    <button onClick={ handleAddApartment } className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                         Agreement
                     </button>
                 </div>

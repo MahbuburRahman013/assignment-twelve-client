@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <div className='shadow-md'>
-            <div className="drawer container mx-auto">
+            <div className="drawer z-20 container mx-auto">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
                     {/* Navbar */}

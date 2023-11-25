@@ -13,7 +13,7 @@ const Apartment = () => {
     const [apartments, setApartments] = useState([]);
     const [currentPage, setCurrentPage] = useState(0)
     const [result, setResult] = useState(10);
-    const [perPage, setParPage] = useState(3);
+    const [perPage, setParPage] = useState(6);
     const numberOfPages = Math.ceil(result / perPage);
 
     const arrOFPages = [...Array(numberOfPages).keys()]
