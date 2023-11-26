@@ -1,12 +1,9 @@
 import { useContext } from 'react';
 import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { ContextProvider } from '../auth/AuthProvider';
-import useUserRole from '../hooks/useUserRole';
-import ProfileData from './ProfileData';
 
 const Profile = () => {
     const { user } = useContext(ContextProvider);
-    const {userRole} = useUserRole();
     
 
     return (
@@ -31,7 +28,33 @@ const Profile = () => {
                 </div>
             </div>
             <div className='w-[80%] mx-auto my-10'>
-                <ProfileData></ProfileData>
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                <table className="min-w-full">
+                    <thead>
+                        <tr className="border-b">
+                            <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Agreement Accept Date
+                            </th>
+                            <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Building
+                            </th>
+                            <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Floor
+                            </th>
+                            <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Room No
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>     
+                                <td className="py-2 px-6">none</td>
+                                <td className="py-2 px-6">none</td>
+                                <td className="py-2 px-6">none</td>
+                                <td className="py-2 px-6">none</td>
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
     );

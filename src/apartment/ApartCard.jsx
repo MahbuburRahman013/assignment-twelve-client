@@ -32,7 +32,7 @@ const handleAddApartment = () =>{
         rent,
         status: 'pending',
         userName: user?.displayName,
-        useEmail: user?.email, 
+        userEmail: user?.email, 
     }
    
     axiosSecure.post(`/apartment`, apartmentData)

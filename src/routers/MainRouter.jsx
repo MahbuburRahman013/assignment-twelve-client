@@ -4,6 +4,7 @@ import Agreement from "../Dashboard/Agreement";
 import Announcement from "../Dashboard/Announcement";
 import LayoutDA from "../Dashboard/Layout/LayoutDA";
 import Profile from "../Dashboard/Profile";
+import MemberProfile from "../Dashboard/profiles/MemberProfile";
 import Home from "../homePage/Home";
 import Layout from "../layout/Layout";
 import Login from "../login/Login";
@@ -38,8 +39,12 @@ const router = createBrowserRouter([
         element:<LayoutDA></LayoutDA>,
         children: [
             {
-                path:'/dashboard/',
+                path:'/dashboard/user-profile',
                 element: <Profile></Profile> 
+            },
+            {
+                path:'/dashboard/member-profile',
+                element: <MemberProfile></MemberProfile>
             },
             {
                 path:'announcement',
