@@ -18,13 +18,16 @@ const handleAddApartment = () =>{
           return alert('You are not login user!')
     }
     
-    const date = new Date() 
+    const today = new Date()
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yy = today.getFullYear();
       
     const apartmentData = {
         floorNo,
         blockName,
         apartmentNo,
-        date,
+        date: `${dd}-${mm}-${yy}`,
         id,
         rent,
         status: 'pending',

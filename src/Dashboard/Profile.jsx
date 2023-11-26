@@ -1,10 +1,13 @@
 import { useContext } from 'react';
 import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { ContextProvider } from '../auth/AuthProvider';
+import useUserRole from '../hooks/useUserRole';
 import ProfileData from './ProfileData';
 
 const Profile = () => {
     const { user } = useContext(ContextProvider);
+    const {userRole} = useUserRole();
+    
 
     return (
         <div className='mt-12'>

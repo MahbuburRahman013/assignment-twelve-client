@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Apartment from "../apartment/Apartment";
+import Agreement from "../Dashboard/Agreement";
 import Announcement from "../Dashboard/Announcement";
 import LayoutDA from "../Dashboard/Layout/LayoutDA";
 import Profile from "../Dashboard/Profile";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:'announcement',
                 element: <Announcement></Announcement>
+            },
+            {
+                path: 'agreement',
+                element: <Agreement></Agreement>
             }
         ]
     }
