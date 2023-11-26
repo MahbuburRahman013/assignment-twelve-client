@@ -6,7 +6,9 @@ import useAxiosSecure from '../hooks/useAxiosSecure';
 const ApartCard = ({ apartment }) => {
     const { apartmentImage, apartmentNo, blockName, floorNo, rent , id } = apartment;
     const axiosSecure = useAxiosSecure()
-    const {user} = useContext(ContextProvider);  
+    const {user} = useContext(ContextProvider); 
+    
+    
     
 
 const handleAddApartment = () =>{
@@ -15,12 +17,14 @@ const handleAddApartment = () =>{
     if(!user?.email){
           return alert('You are not login user!')
     }
-
+    
+    const date = new Date() 
       
     const apartmentData = {
         floorNo,
         blockName,
         apartmentNo,
+        date,
         id,
         rent,
         status: 'pending',
