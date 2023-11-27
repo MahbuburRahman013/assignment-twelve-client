@@ -3,6 +3,10 @@ import Apartment from "../apartment/Apartment";
 import Agreement from "../Dashboard/Agreement";
 import Announcement from "../Dashboard/Announcement";
 import LayoutDA from "../Dashboard/Layout/LayoutDA";
+import ManageCoupon from "../Dashboard/ManageCoupon";
+import PaymentHistory from "../Dashboard/PaymentHistory";
+import Payment from "../Dashboard/paymentPage/Payment";
+import PaymentForm from "../Dashboard/paymentPage/PaymentForm";
 import Profile from "../Dashboard/Profile";
 import MemberProfile from "../Dashboard/profiles/MemberProfile";
 import Home from "../homePage/Home";
@@ -38,21 +42,39 @@ const router = createBrowserRouter([
         path:'/dashboard',
         element:<LayoutDA></LayoutDA>,
         children: [
-            {
+            {     
                 path:'/dashboard/user-profile',
-                element: <Profile></Profile> 
+                element: <Profile></Profile>, 
             },
             {
                 path:'/dashboard/member-profile',
-                element: <MemberProfile></MemberProfile>
+                element: <MemberProfile></MemberProfile>,
+                
             },
             {
-                path:'announcement',
-                element: <Announcement></Announcement>
+                path:'/dashboard/',
+                element: <Announcement></Announcement>,
+                
             },
             {
                 path: 'agreement',
                 element: <Agreement></Agreement>
+            },
+            {
+                path: 'make-payment',
+                element: <PaymentForm></PaymentForm>
+            },
+            {
+                path: 'payment/:month',
+                element: <Payment></Payment>
+            },
+            {
+                path: 'manage-coupon',
+                element: <ManageCoupon></ManageCoupon>
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

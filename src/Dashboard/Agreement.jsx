@@ -79,7 +79,7 @@ const Agreement = () => {
                         {agreementData.map((item, index) => (
                             <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : ''}>
                                 <td className="py-1 border-r text-center px-1">{index + 1}. {item.userName}</td>
-                                <td className="py-1 border-r text-center px-1">{item.useEmail}</td>
+                                <td className="py-1 border-r text-center px-1">{item.userEmail}</td>
                                 <td className="py-1 border-r text-center px-1">{item.floorNo}</td>
                                 <td className="py-1 border-r text-center px-1">{item.blockName}</td>
                                 <td className="py-1 border-r text-center px-1">{item.apartmentNo}</td>
