@@ -14,17 +14,27 @@ const NavbarDA = () => {
             {  
                 role === 'admin' ?
 
-                <NavLink to='/dashboard/admin-profile'><div className='text-xl py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>profile</div></NavLink>:
+                <NavLink to='/dashboard/admin-profile'><div className='text-base py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>Admin profile</div></NavLink>
+                
+                
+                :
                 role === 'member' ?
-                <NavLink to='/dashboard/member-profile'><div className='text-xl py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>profile</div></NavLink>:
-                <NavLink to='/dashboard/user-profile'><div className='text-xl py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>profile</div></NavLink>
+
+
+                <NavLink to='/dashboard/member-profile'><div className='text-base py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>Member profile</div></NavLink>
+                
+                
+                :
+                <NavLink to='/dashboard/user-profile'><div className='text-base py-2 pl-10 text-gray-200 border-y border-gray-600 uppercase font-semibold'>profile</div></NavLink>
                  
             }
-            <NavLink to='/dashboard/'><div className='text-xl py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Announcements</div></NavLink>
-            <NavLink to='/dashboard/agreement'><div className='text-xl py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Agreement Request</div></NavLink>
-            <NavLink to='/dashboard/make-payment'><div className='text-xl py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Make Payment</div></NavLink>
-            <NavLink to='/dashboard/manage-coupon'><div className='text-xl py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Manage Coupons</div></NavLink>
-            <NavLink to='/dashboard/payment-history'><div className='text-xl py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Payment History</div></NavLink>
+            <NavLink to='/dashboard/'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Announcements</div></NavLink>
+            <NavLink to='/dashboard/agreement'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Agreement Request</div></NavLink>
+            <NavLink to='/dashboard/make-payment'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Make Payment</div></NavLink>
+            <NavLink to='/dashboard/manage-coupon'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Manage Coupons</div></NavLink>
+            <NavLink to='/dashboard/payment-history'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Payment History</div></NavLink>
+            <NavLink to='/dashboard/manage-member'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Manage Members</div></NavLink>
+            <NavLink to='/dashboard/make-announce'><div className='text-base py-2 pl-10 text-gray-200 border-b border-gray-600 uppercase font-semibold'>Make Announcement</div></NavLink>
         </div>
     );
 };

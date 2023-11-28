@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Apartment from "../apartment/Apartment";
+import AdminProfile from "../Dashboard/AdminProfile/AdminProfile";
 import Agreement from "../Dashboard/Agreement";
 import Announcement from "../Dashboard/Announcement";
 import LayoutDA from "../Dashboard/Layout/LayoutDA";
+import MakeAnnounce from "../Dashboard/MakeAnnounce";
 import ManageCoupon from "../Dashboard/ManageCoupon";
+import ManegeMember from "../Dashboard/ManegeMember";
 import PaymentHistory from "../Dashboard/PaymentHistory";
 import Payment from "../Dashboard/paymentPage/Payment";
 import PaymentForm from "../Dashboard/paymentPage/PaymentForm";
@@ -43,13 +46,18 @@ const router = createBrowserRouter([
         element:<LayoutDA></LayoutDA>,
         children: [
             {     
-                path:'/dashboard/user-profile',
+                path:'user-profile',
                 element: <Profile></Profile>, 
             },
             {
-                path:'/dashboard/member-profile',
+                path:'member-profile',
                 element: <MemberProfile></MemberProfile>,
                 
+            },
+            {
+                path:'admin-profile',
+                element:<AdminProfile></AdminProfile>
+
             },
             {
                 path:'/dashboard/',
@@ -75,6 +83,14 @@ const router = createBrowserRouter([
             {
                 path: 'payment-history',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'manage-member',
+                element: <ManegeMember></ManegeMember>
+            },
+            {
+                path: 'make-announce',
+                element: <MakeAnnounce></MakeAnnounce>
             }
         ]
     }

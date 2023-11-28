@@ -7,7 +7,7 @@ import { ContextProvider } from "../../auth/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import CheckoutForm from "./CheckoutForm";
 import { useForm } from "react-hook-form"
-import useCoupons from "../../hooks/useCoupons";
+import useCouponAvail from "../../hooks/useCouponAvail";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
@@ -17,14 +17,13 @@ const Payment = () => {
         handleSubmit,
       } = useForm()
     
-    const [coupons] = useCoupons();
     const { month } = useParams();
+    const [coupons] = useCouponAvail();
     
     const axiosSecure = useAxiosSecure();
     const {user} = useContext(ContextProvider);
     
     
-
     const {data: memberData = []} = useQuery({
         queryKey: [user?.email,'member'],
         queryFn: async () => {

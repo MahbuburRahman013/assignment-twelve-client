@@ -1,20 +1,19 @@
 import { GrAnnounce } from "react-icons/gr";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import TitleCom from '../sheard/TitleCom';
+import { useQuery } from '@tanstack/react-query'
 
 const Announcement = () => {
+       const axiosSecure = useAxiosSecure()
 
-    const announcements = [
-        {
-          title: 'Important Update',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-        },
-        {
-          title: 'New Feature Released',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-        },
-        // Add more announcements as needed
-      ];
-    
+       const {data: announcements = []} = useQuery({
+             queryKey: ['all-announcement'],
+             queryFn: async () => {
+                  const res = await axiosSecure.get('/announcement')
+                  return res.data;
+             }
+       })
+  
 
     return (
         <div>

@@ -17,6 +17,7 @@ const ManageCoupon = () => {
              couponCode: data.couponCode,
              discount: data.discount,
              description: data.description,
+             available: 'yes',
         };
       axiosSecure.post('/coupon-add', { couponData })
       .then(res=> {
@@ -25,9 +26,21 @@ const ManageCoupon = () => {
             refetch()
            }
            
-      })      
+      })         
         
-        
+    };
+
+    const handleDisable = id => {
+
+        axiosSecure.patch(`/coupon/${id}`)
+        .then(res=> {
+              if(res.data.modifiedCount > 0){
+
+                  alert('coupon disabled!!')
+                  refetch();
+              }
+              
+        })
     }
 
 
@@ -77,6 +90,9 @@ const ManageCoupon = () => {
                                 <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Coupon description
                                 </th>
+                                <th className="py-4 px-6 bg-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Make Unavailable
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,6 +101,11 @@ const ManageCoupon = () => {
                                 <td className="py-2 px-3 border-r text-center">{item.couponCode}</td>
                                 <td className="py-2 px-3 border-r text-center">%{item.discount}</td>
                                 <td className="py-2 px-3 border-r text-center">{(item.description)}</td> 
+                                <td className="py-2 px-3 border-r text-center">{
+                                    item.available === 'yes'?
+                                    <button onClick={()=>handleDisable(item._id)} className="btn btn-sm btn-warning">Disable</button>:
+                                    <p className="text-red-600 font-semibold">Disabled</p>
+                                }</td> 
                             </tr>
                         ))}
                     </tbody>

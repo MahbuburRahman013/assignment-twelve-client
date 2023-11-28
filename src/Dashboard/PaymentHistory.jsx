@@ -6,27 +6,29 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 const PaymentHistory = () => {
     const { user, loading } = useContext(ContextProvider);
     const axiosSecure = useAxiosSecure();
-    
+    const [payment,setPayment] = useState([]); 
 
-    const { data: paymentData} = useQuery({
+    const {data} = useQuery({
         queryKey: ['all-payment'],
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/all-payment/${user?.email}`)
-            return res.data;
+            return setPayment(res.data)
         }
     });
 
-    const [payment,setPayment] = useState(paymentData); 
-      
+    
+    
 
     const handleSubmit = e => {
         e.preventDefault()
-        const remaining = paymentData.filter(item=> item.month === e.target.month.value);
+        const remaining = payment.filter(item=> item.month === e.target.month.value);
         setPayment(remaining);
         
        
     }
+
+   
 
     return (
         <div className="w-[90%] mx-auto my-10">
