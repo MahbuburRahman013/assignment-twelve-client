@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./useAxiosSecure";
+import useAxiosPublic from "./useAxiosPublic";
+
 
 const useCouponAvail = () => {
-     const axiosSecure = useAxiosSecure()
+     const axiosSecure = useAxiosPublic()
 
     const {data: coupons = []} = useQuery({
         queryKey: ['coupons-available'],
         queryFn: async()=> {
-               const res = await axiosSecure.get('coupons-available')
+               const res = await axiosSecure.get('/coupons-available')
                return res.data;
         }
   })

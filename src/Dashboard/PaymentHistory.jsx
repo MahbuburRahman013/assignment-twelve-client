@@ -8,12 +8,13 @@ const PaymentHistory = () => {
     const axiosSecure = useAxiosSecure();
     const [payment,setPayment] = useState([]); 
 
-    const {data} = useQuery({
+    const {data = []} = useQuery({
         queryKey: ['all-payment'],
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/all-payment/${user?.email}`)
-            return setPayment(res.data)
+            setPayment(res.data)
+            return res.data;
         }
     });
 
