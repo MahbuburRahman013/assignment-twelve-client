@@ -1,21 +1,26 @@
 import NavbarDA from "../NavbarDA";
 import { Outlet } from 'react-router-dom';
-
+import { useState } from "react";
+import { IoMdMenu } from "react-icons/io";
+import { RiCloseFill } from "react-icons/ri";
 
 
 const LayoutDA = () => {
-
+   const [open,setOpen] = useState(false);
 
     return (
         <div className="grid grid-cols-10">
             <div className="lg:col-span-2 md:col-span-3 hidden md:block"><NavbarDA></NavbarDA></div>
 
             
-                    <details className="absolute z-10 md:hidden w-full" open>
-                        <summary className="bg-[#172554] px-2 rounder-t-md text-gray-100 font-semibold py-2">Navbar</summary>
+                    <div className="absolute z-10 md:hidden w-full" >
+                        <summary onClick={()=> setOpen(!open)} className="bg-[#172554] px-2 rounder-t-md text-gray-100 text-2xl py-2">{
+                           open? <RiCloseFill></RiCloseFill>:<IoMdMenu></IoMdMenu>
+
+                        }</summary>
             
-                                <div open><NavbarDA></NavbarDA></div> 
-                    </details>
+                                <div onClick={()=> setOpen(!open)} className={open? 'block' : 'hidden'}><NavbarDA></NavbarDA></div> 
+                    </div>
                 
             
 

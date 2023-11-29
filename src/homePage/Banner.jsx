@@ -28,7 +28,7 @@ const Banner = () => {
             <div className='mb-32 lg:min-h-screen bg-[url("https://img.freepik.com/premium-vector/simple-background_883298-9.jpg")] bg-cover bg-no-repeat'>
                 <div className='flex lg:flex-row pb-5 flex-col-reverse justify-between items-center lg:h-[80vh] container mx-auto'>
                     <div className='lg:w-1/2'>
-                        <h1 className='lg:text-6xl px-2 md:text-3xl font-bold'>Elevate Your Building Manage<span className='text-blue-600'>ment Experience.</span>
+                        <h1 className='lg:text-6xl text-xl px-2 md:text-3xl font-bold'>Elevate Your Building Manage<span className='text-blue-600'>ment Experience.</span>
                         </h1>
                     </div>
                     <div className='lg:w-1/2 md:w-2/3 w-full  mt-10 lg:mt-0 shadow-lg shadow-blue-700 rounded-lg'>
