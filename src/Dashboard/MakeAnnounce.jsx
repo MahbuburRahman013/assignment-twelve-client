@@ -1,6 +1,6 @@
 import { useForm} from 'react-hook-form';
 import useAxiosSecure from '../hooks/useAxiosSecure';
-import toast from 'react-hot-toast';
+import   {toast , Toaster} from 'react-hot-toast'
 
 
 const MakeAnnounce = () => {
@@ -15,9 +15,11 @@ const MakeAnnounce = () => {
                
             axiosSecure.post('/announcement', announcement)
             .then(res=> {
+                console.log(res.data)
                    if(res.data.acknowledged){
+                    
                            toast.success('create announcement successfully')
-                           data.reset()
+                           
                    }
             })
     };
@@ -64,6 +66,7 @@ const MakeAnnounce = () => {
                     </button>
                 </form>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

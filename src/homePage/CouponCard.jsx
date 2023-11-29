@@ -1,12 +1,17 @@
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const CouponCard = ({coupon}) => {
+    useEffect(()=> {
+        Aos.init()     
+  },[])
 
       const {couponCode, discount, description } = coupon;
 
     return (
         <div>
-            <div className='bg-blue-200 w-[300px] rounded-md shadow-lg shadow-purple-500'>
+            <div data-aos="zoom-in-up" className='bg-blue-200 w-[300px] rounded-md shadow-lg shadow-purple-500'>
                 <h1 className='anim text-3xl text-center pt-8 px-10 font-bold'>{discount}% OFF</h1>
                 <div className='bg-blue-500 flex-1 rounded-b-md  py-3 flex items-center justify-center flex-col'>
                     <div className='py-4 text-gray-50 font-semibold text-xl rounded-md'>Code: {couponCode}</div>

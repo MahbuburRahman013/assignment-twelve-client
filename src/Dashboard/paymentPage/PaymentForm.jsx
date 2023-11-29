@@ -2,7 +2,7 @@ import { IoIosSend } from 'react-icons/io';
 import { useForm, Controller } from 'react-hook-form'
 import { ContextProvider } from '../../auth/AuthProvider';
 import { useNavigate } from 'react-router-dom'
-import { useContext} from 'react';
+import { useContext } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 
@@ -11,24 +11,24 @@ const PaymentForm = () => {
     const { user } = useContext(ContextProvider);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
-    
 
-    const {data: memberData = []} = useQuery({
-        queryKey: [user?.email,'member'],
+
+    const { data: memberData = [] } = useQuery({
+        queryKey: [user?.email, 'member'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/member-data/${user?.email}`)
             return res.data;
         }
     });
 
-   
+
 
 
 
     const onSubmit = (data) => {
-   
-             navigate(`/dashboard/payment/${data?.month}`);
-                   
+
+        navigate(`/dashboard/payment/${data?.month}`);
+
     };
 
 
@@ -56,7 +56,7 @@ const PaymentForm = () => {
                                 type="text"
                                 readOnly
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                value={memberData.map(item=> item?.floorNo)}
+                                value={memberData.map(item => item?.floorNo)}
                             />
                         </div>
                         <div className="mb-4">
@@ -65,7 +65,7 @@ const PaymentForm = () => {
                                 type="text"
                                 readOnly
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                value={memberData.map(item=> item?.blockName)}
+                                value={memberData.map(item => item?.blockName)}
                             />
                         </div>
                     </div>
@@ -74,7 +74,7 @@ const PaymentForm = () => {
                             <label className="block text-gray-700 text-sm font-bold mb-2">Apartment No:</label>
                             <input
                                 type="text"
-                                value={memberData.map(item=> item?.apartmentNo)}
+                                value={memberData.map(item => item?.apartmentNo)}
                                 readOnly
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -86,7 +86,7 @@ const PaymentForm = () => {
                                 name='rent'
                                 readOnly
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                value={memberData.reduce((current,item)=> item?.rent + current , 0)}
+                                value={memberData.reduce((current, item) => item?.rent + current, 0)}
                             />
                         </div>
                     </div>
@@ -96,30 +96,35 @@ const PaymentForm = () => {
                             name="month"
                             rules={{ required: 'Please select a month' }}
                             control={control}
-                            render={({ field }) => (
-                                <select
-                                    {...field}
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                >
-                                    <option value="january">January</option>
-                                    <option value="february">February</option>
-                                    <option value="march">March</option>
-                                    <option value="april">April</option>
-                                    <option value="may">May</option>
-                                    <option value="june">June</option>
-                                    <option value="july">July</option>
-                                    <option value="august">August</option>
-                                    <option value="september">September</option>
-                                    <option value="october">October</option>
-                                    <option value="november">November</option>
-                                    <option value="december">December</option>
+                            render={({ field , fieldState}) => (
+                                <div>
+                                    <select
+                                        {...field}
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    >
+                                        <option value="january">January</option>
+                                        <option value="february">February</option>
+                                        <option value="march">March</option>
+                                        <option value="april">April</option>
+                                        <option value="may">May</option>
+                                        <option value="june">June</option>
+                                        <option value="july">July</option>
+                                        <option value="august">August</option>
+                                        <option value="september">September</option>
+                                        <option value="october">October</option>
+                                        <option value="november">November</option>
+                                        <option value="december">December</option>
 
-                                </select>
-                                
+                                    </select>
+                                    {fieldState?.error && (
+                                        <p className="text-red-500 text-xs italic">{fieldState.error.message}</p>
+                                    )}
+                                </div>
+
                             )}
-                            
+
                         />
-                        
+
                     </div>
                     <div className="flex items-center justify-between">
                         <button

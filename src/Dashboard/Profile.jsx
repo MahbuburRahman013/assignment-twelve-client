@@ -28,7 +28,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className='w-[80%] mx-auto my-10'>
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-white rounded-lg overflow-auto shadow-lg">
                 <table className="min-w-full">
                     <thead>
                         <tr className="border-b">
