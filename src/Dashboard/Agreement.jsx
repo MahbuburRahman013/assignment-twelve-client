@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { FaCheckCircle } from "react-icons/fa";
+import toast from 'react-hot-toast';
 
 const Agreement = () => {
     const axiosSecure = useAxiosSecure();
@@ -34,7 +35,7 @@ const Agreement = () => {
         axiosSecure.post('/update-confirm', { roomData })
             .then(res => {
                 if (res.data) {
-                    alert('confirm member')
+                    toast.success('confirm accepted member')
                     refetch()
                     console.log(res.data)
                 }

@@ -2,6 +2,7 @@ import {CardElement,  useElements, useStripe} from '@stripe/react-stripe-js'
 import { useContext, useEffect, useState } from 'react';
 import { ContextProvider } from '../../auth/AuthProvider';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 
 const CheckoutForm = ({memberData, month , rent}) => {
@@ -88,7 +89,7 @@ const handleSubmit = async(event) =>{
 
         const res = await axiosSecure.post('payment', paymentInfo);
         if(res.data.acknowledged){
-            alert('payment succeeded')
+            toast.success('payment succeeded')
         }
        
 

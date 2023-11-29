@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { FaMoneyBillAlt } from 'react-icons/fa';
 import { ContextProvider } from '../auth/AuthProvider';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import toast from 'react-hot-toast'
 
 const ApartCard = ({ apartment }) => {
     const { apartmentImage, apartmentNo, blockName, floorNo, rent , id } = apartment;
@@ -15,7 +16,7 @@ const handleAddApartment = () =>{
     
    
     if(!user?.email){
-          return alert('You are not login user!')
+          return toast.error('You are not login user!')
     }
     
     const today = new Date()
@@ -39,10 +40,10 @@ const handleAddApartment = () =>{
     .then(res=> {
         
         if(res?.data?.acknowledged){
-            alert('added successfully')
+            toast.success('Request send successfully')
         }
         if(res?.data?.message){
-            alert('already added')
+            toast.error('already added')
         }
         console.log(res.data)
     })

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import {Link , useNavigate} from 'react-router-dom'
 import { ContextProvider } from "../auth/AuthProvider";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
@@ -21,12 +22,12 @@ const Login = () => {
         signInUser(data.email, data.password)
         .then(result=> {
             console.log(result.user);
-            alert('sign in successfully')
+            toast.success('sign in successfully')
             navigate('/');
         })
         .catch(error=> {
             console.log(error.message);
-            alert(error.message);
+            toast.error(error.message);
         })
         
     };
@@ -39,7 +40,7 @@ const Login = () => {
                 axiosPublic.post('/user', {email: result.user.email, name: result.user.displayName, role: 'user'})
                 .then(res=> {
                      if(res.data){
-                        alert('sign in successfully')
+                        toast.success('sign in successfully')
                         navigate('/')
                      }
                 }) 
@@ -48,7 +49,7 @@ const Login = () => {
           })
           .catch(error=> {
             console.log(error);
-            alert(error.message);
+            toast.error(error.message);
           })
     }
 

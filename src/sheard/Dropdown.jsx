@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import {Link} from 'react-router-dom';
 import { ContextProvider } from "../auth/AuthProvider";
+import toast from 'react-hot-toast';
 
 const Dropdown = ({marTop, mar}) => {
     const [isShow, setIsShow] = useState(false);
@@ -12,7 +13,7 @@ const Dropdown = ({marTop, mar}) => {
 const handleLogout = () => {
      logOutUser()
      .then(()=>{
-          alert('sign out successfully')
+          toast.success('sign out successfully')
      })
 }
 

@@ -8,6 +8,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import CheckoutForm from "./CheckoutForm";
 import { useForm } from "react-hook-form"
 import useCouponAvail from "../../hooks/useCouponAvail";
+import toast from 'react-hot-toast';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
@@ -41,11 +42,11 @@ const Payment = () => {
               const matchingElement = couponArray.find(item => item[0] === data.coupon);
                
               if(!matchingElement){
-                 return alert('invalid coupon')
+                 return toast.error('invalid coupon')
               }
 
               if(matchingElement){
-                  alert('valid coupon')
+                  toast.success('valid coupon')
                   const result = matchingElement ? matchingElement[1] : null;
                   const remainingRent = ((rentData / 100) * parseInt(result))
                   setRent(rentData - remainingRent)

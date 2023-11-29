@@ -5,6 +5,7 @@ import {Link , useNavigate} from 'react-router-dom'
 import { ContextProvider } from "../auth/AuthProvider";
 import auth from "../firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import toast from 'react-hot-toast';
 
 
 const IMG_HOASTING_KEY = import.meta.env.VITE_IMAGE_UPLOAD_API;
@@ -45,19 +46,19 @@ const Registration = () => {
                         axiosPublic.post('/user', {email: result?.user?.email, name: result?.user?.displayName, role: 'user'})
                         .then(res=> {
                              if(res.data.acknowledged){
-                                alert('user create successfully!')
+                                toast.success('user create successfully!')
                                 navigate('/')
                              }
                         }) 
                         
                      })
                      .catch(error=> {
-                        alert(error.message)
+                        toast.error(error.message)
                      })
                 }
             })
             .catch(error=> {
-                alert(error.message);
+                toast.error(error.message);
             })
         }
     }

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useCoupons from "../hooks/useCoupons";
+import toast from 'react-hot-toast';
 
 const ManageCoupon = () => {
    const {
@@ -22,7 +23,7 @@ const ManageCoupon = () => {
       axiosSecure.post('/coupon-add', { couponData })
       .then(res=> {
            if(res.data){
-            alert('coupon added')
+            toast.success('coupon added')
             refetch()
            }
            
@@ -36,7 +37,7 @@ const ManageCoupon = () => {
         .then(res=> {
               if(res.data.modifiedCount > 0){
 
-                  alert('coupon disabled!!')
+                  toast.success('coupon disabled!!')
                   refetch();
               }
               

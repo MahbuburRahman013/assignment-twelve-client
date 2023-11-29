@@ -1,5 +1,6 @@
 import { useForm} from 'react-hook-form';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 
 const MakeAnnounce = () => {
@@ -15,7 +16,7 @@ const MakeAnnounce = () => {
             axiosSecure.post('/announcement', announcement)
             .then(res=> {
                    if(res.data.acknowledged){
-                           alert('create announcement successfully')
+                           toast.success('create announcement successfully')
                            data.reset()
                    }
             })
