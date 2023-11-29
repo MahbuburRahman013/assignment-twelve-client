@@ -15,6 +15,9 @@ import MemberProfile from "../Dashboard/profiles/MemberProfile";
 import Home from "../homePage/Home";
 import Layout from "../layout/Layout";
 import Login from "../login/Login";
+import AdminPrivate from "../privateRoutes/AdminPrivate";
+import MemberPrivate from "../privateRoutes/MemberPrivate";
+import UserPrivate from "../privateRoutes/UserPrivate";
 import Registration from "../Registration/Registration";
 
 const router = createBrowserRouter([
@@ -43,54 +46,54 @@ const router = createBrowserRouter([
     },
     {   
         path:'/dashboard',
-        element:<LayoutDA></LayoutDA>,
+        element:<UserPrivate><LayoutDA></LayoutDA></UserPrivate>,
         children: [
             {     
                 path:'user-profile',
-                element: <Profile></Profile>, 
+                element: <UserPrivate><Profile></Profile></UserPrivate>, 
             },
             {
                 path:'member-profile',
-                element: <MemberProfile></MemberProfile>,
+                element: <MemberPrivate><MemberProfile></MemberProfile></MemberPrivate>,
                 
             },
             {
                 path:'admin-profile',
-                element:<AdminProfile></AdminProfile>
+                element:<AdminPrivate><AdminProfile></AdminProfile></AdminPrivate>
 
             },
             {
                 path:'/dashboard/',
-                element: <Announcement></Announcement>,
+                element: <UserPrivate><Announcement></Announcement></UserPrivate>,
                 
             },
             {
                 path: 'agreement',
-                element: <Agreement></Agreement>
+                element: <AdminPrivate><Agreement></Agreement></AdminPrivate>
             },
             {
                 path: 'make-payment',
-                element: <PaymentForm></PaymentForm>
+                element: <UserPrivate><PaymentForm></PaymentForm></UserPrivate>
             },
             {
                 path: 'payment/:month',
-                element: <Payment></Payment>
+                element: <UserPrivate><Payment></Payment></UserPrivate>
             },
             {
                 path: 'manage-coupon',
-                element: <ManageCoupon></ManageCoupon>
+                element: <AdminPrivate><ManageCoupon></ManageCoupon></AdminPrivate>
             },
             {
                 path: 'payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <MemberPrivate><PaymentHistory></PaymentHistory></MemberPrivate>
             },
             {
                 path: 'manage-member',
-                element: <ManegeMember></ManegeMember>
+                element: <AdminPrivate><ManegeMember></ManegeMember></AdminPrivate>
             },
             {
                 path: 'make-announce',
-                element: <MakeAnnounce></MakeAnnounce>
+                element: <AdminPrivate><MakeAnnounce></MakeAnnounce></AdminPrivate>
             }
         ]
     }

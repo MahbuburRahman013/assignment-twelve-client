@@ -5,12 +5,12 @@ const AboutBuilding = () => {
     return (
         <div>
             <section className=" py-16 my-16">
-                <div className="container mx-auto">
+                <div className="container mx-auto px-2 lg:px-0">
 
                     <TitleCom title={'About the Building'}></TitleCom>
-                    <div className="flex items-center gap-14 justify-between">
+                    <div className="flex flex-col-reverse lg:flex-row items-center gap-14 justify-between">
 
-                        <div className="w-[50%] text-gray-700 text-lg leading-relaxed">
+                        <div className="lg:w-[50%] text-gray-700 text-lg leading-relaxed">
                             <h1 className="text-2xl font-semibold my-3">Modern Urban Retreat</h1>
                             <p>
                             Welcome to our modern urban retreat, nestled in the heart of the city. This chic and stylish rental building offers a sophisticated living experience with state-of-the-art amenities. 
@@ -26,7 +26,7 @@ const AboutBuilding = () => {
 
                         </div>
 
-                        <div className="grid gap-7 grid-cols-2 w-[50%]">
+                        <div className="grid md:gap-7 gap-2 grid-cols-2 lg:w-[50%]">
                             <div className="">
                                 <img className="h-full  rounded-lg shadow-md shadow-blue-500" src="https://i.ibb.co/QPvtqvW/161230725.jpg" alt="" />
                             </div>

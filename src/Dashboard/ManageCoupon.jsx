@@ -47,8 +47,8 @@ const ManageCoupon = () => {
 
     return (
         <div className='mt-12'>
-            <div className='w-[80%] mx-auto my-10'>
-                <div className="bg-white rounded-lg overflow-hidden">
+            <div className='w-[80%] mx-auto  my-10'>
+                <div className="bg-white rounded-lg overflow-auto">
                     <div>
                         <div className="flex justify-center mb-5">
                             <button className="btn text-center" onClick={() => document.getElementById('my_modal_5').showModal()}>Add</button>

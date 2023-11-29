@@ -3,11 +3,11 @@ import TitleCom from "../sheard/TitleCom";
 
 const Location = () => {
     return (
-        <div className="container mx-auto my-16">
+        <div className="container px-2 lg:px-0 mx-auto my-16">
             <TitleCom title={'location of Building'}></TitleCom>
-            <div className="flex gap-8 justify-center items-center">
+            <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
 
-            <img className="w-[45%] h-[350px] rounded-md border-2 border-gray-300 " src="https://i.ibb.co/9NJy5Cc/russell-senate-office-building-03-ht-jc-180829-hp-Embed.jpg" alt="" />
+            <img className="lg:w-[45%] md:w-[70%] lg:h-[350px] rounded-md border-2 border-gray-300 " src="https://i.ibb.co/9NJy5Cc/russell-senate-office-building-03-ht-jc-180829-hp-Embed.jpg" alt="" />
 
             <div className="text-gray-700 text-lg leading-relaxed">
                 <h1 className="text-3xl font-semibold my-3">GoulHome Hub - Your Urban Sanctuary</h1>

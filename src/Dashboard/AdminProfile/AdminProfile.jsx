@@ -9,7 +9,7 @@ const AdminProfile = () => {
 
     return (
         <div>
-            <div className='mt-12'>
+            <div className='mt-12 mx-3 md:mx-0'>
                 <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-lg">
                     <div className="relative">
                         <div className="bg-blue-500 ">

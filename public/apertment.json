@@ -1,7 +1,7 @@
  [
       {
         "id": "a",
-        "apartmentImage": "url-to-image-1.jpg",
+        "apartmentImage": "https://i.ibb.co/Trft8s3/homepage-2-essexluxe.jpg",
         "floorNo": 2,
         "blockName": "A",
         "apartmentNo": 201,
@@ -9,7 +9,7 @@
       },
       {
         "id": "b",
-        "apartmentImage": "url-to-image-2.jpg",
+        "apartmentImage": "https://i.ibb.co/bdXz2Zs/383834719.jpg",
         "floorNo": 5,
         "blockName": "B",
         "apartmentNo": 503,
@@ -17,7 +17,7 @@
       },
       {
         "id": "c",
-        "apartmentImage": "url-to-image-3.jpg",
+        "apartmentImage": "https://i.ibb.co/tzkr0N8/the-huntley-atlanta-ga-luxury-apartment-view.jpg",
         "floorNo": 3,
         "blockName": "C",
         "apartmentNo": 302,
@@ -25,7 +25,7 @@
       },
       {
         "id": "d",
-        "apartmentImage": "url-to-image-4.jpg",
+        "apartmentImage": "https://i.ibb.co/X4mtjjs/maxresdefault-1.jpg",
         "floorNo": 8,
         "blockName": "A",
         "apartmentNo": 802,
@@ -33,7 +33,7 @@
       },
       {
         "id": "e",
-        "apartmentImage": "url-to-image-5.jpg",
+        "apartmentImage": "https://i.ibb.co/CbLkgzt/boston-luxury-apartment-waterfront.jpg",
         "floorNo": 4,
         "blockName": "B",
         "apartmentNo": 402,
@@ -41,7 +41,7 @@
       },
       {
         "id": "f",
-        "apartmentImage": "url-to-image-6.jpg",
+        "apartmentImage": "https://i.ibb.co/hyCPjFX/327944475.jpg",
         "floorNo": 6,
         "blockName": "C",
         "apartmentNo": 601,
@@ -49,7 +49,7 @@
       },
       {
         "id": "g",
-        "apartmentImage": "url-to-image-7.jpg",
+        "apartmentImage": "https://i.ibb.co/qncpDhT/luxury-apartment-01.jpg",
         "floorNo": 7,
         "blockName": "A",
         "apartmentNo": 702,

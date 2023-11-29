@@ -7,7 +7,7 @@ const Profile = () => {
     
 
     return (
-        <div className='mt-12'>
+        <div className='mt-12 md:mx-0 mx-3'>
             <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-lg">
                 <div className="relative">
                     <div className="bg-blue-500 ">

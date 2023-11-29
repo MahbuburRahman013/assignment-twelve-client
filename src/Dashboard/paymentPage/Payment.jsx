@@ -57,7 +57,7 @@ const Payment = () => {
     }
 
     return (
-        <div className="w-[80%] my-10 mx-auto">
+        <div className="md:w-[80%] my-10 mx-auto">
             <div className="border-2 py-5">
                 <h1 className="text-xl font-semibold text-center my-5">All Rent: {rent}</h1>
                 <div className="mb-24">
@@ -67,7 +67,7 @@ const Payment = () => {
                      </form>
                       
                 </div>
-                <div className="px-20">
+                <div className="md:px-20">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm memberData={memberData} rent={rent} month={month}></CheckoutForm>
                     </Elements>

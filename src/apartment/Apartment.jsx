@@ -67,7 +67,7 @@ const Apartment = () => {
         <div className="min-h-[calc(100vh-295px)] container mx-auto  my-10">
             { isLoading ? <div className="flex justify-center items-center"><span className="loading loading-ring loading-lg my-24"></span></div>:
                 <div>
-                <div className={`grid grid-cols-3  gap-10`}>
+                <div className={`grid lg:grid-cols-3 px-3 lg:px-0 md:grid-cols-2 grid-cols-1  gap-10`}>
                     {
                         apartments.map(apartment => <ApartCard apartment={apartment} key={apartment.id}></ApartCard>)
                     }

@@ -66,9 +66,9 @@ const Registration = () => {
 
     return (
         <div className="flex justify-between">
-            <div className="w-[50%] flex justify-center items-center">
+            <div className="lg:w-[50%] lg:px-0 lg:py-0 px-3  min-h-screen w-full py-5 flex justify-center items-center">
 
-                <form className="bg-white w-[70%]  p-8 shadow-lg rounded-lg" onSubmit={handleSubmit(onSubmit)}>
+                <form className="bg-white lg:w-[70%]  p-8 shadow-lg rounded-lg" onSubmit={handleSubmit(onSubmit)}>
                     <h2 className="text-2xl font-bold mb-4">Registration</h2>
 
                     <div className="mb-4">
@@ -133,9 +133,9 @@ const Registration = () => {
 
             </div>
 
-            <div className="h-screen bg-blue-500 w-[25%]">
+            <div className="h-screen hidden lg:block bg-blue-500 w-[25%]">
             </div>
-            <img className="right-0 h-full w-[50%] absolute" src="https://i.ibb.co/2gj3JdK/office-7048049-1280-1.png" alt="" />
+            <img className="right-0 lg:block h-full hidden  w-[50%] absolute" src="https://i.ibb.co/2gj3JdK/office-7048049-1280-1.png" alt="" />
         </div>
     );
 };
