@@ -53,7 +53,7 @@ const AdminData = () => {
                     <FaHome></FaHome>
                     <h1>available</h1>
                 </div>
-                <p className="text-4xl font-bold">{availableRoom}%</p>
+                <p className="text-4xl font-bold">{parseFloat(100 - availableRoom).toFixed(2)}%</p>
             </div>
 
             <div className="bg-gradient-to-tr from-[#DA3068] to-[#14469F] py-4 px-7 rounded-md text-center text-gray-100 ">
@@ -61,7 +61,7 @@ const AdminData = () => {
                     <TbHomeOff></TbHomeOff>
                     <h1>unavailable</h1>
                 </div>
-                <p className="text-4xl font-bold">{100 - availableRoom}%</p>
+                <p className="text-4xl font-bold">{availableRoom}%</p>
             </div>
         </div>
     );

@@ -8,13 +8,14 @@ import { IoPeopleSharp } from "react-icons/io5";
 import { PiGitPullRequestBold } from "react-icons/pi";
 import { RiCoupon2Fill } from "react-icons/ri";
 
+
 const NavbarDA = () => {
     const { userRole } = useUserRole();
     const role = userRole?.role
 
 
     return (
-        <div className="lg:min-h-screen h-full  bg-blue-950">
+        <div  className="lg:min-h-screen h-full  bg-blue-950">
             <div className="flex-1 pt-7 pb-3 md:pb-16 px-2 mx-2">
                 <img className='md:w-60 w-40' src="https://i.ibb.co/zRS2dd2/Screenshot-54-removebg-preview.png" alt="" />
             </div>

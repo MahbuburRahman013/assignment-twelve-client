@@ -100,7 +100,7 @@ const ManageCoupon = () => {
                         {coupons.map((item, index) => (
                             <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : ''}>
                                 <td className="py-2 px-3 border-r text-center">{item.couponCode}</td>
-                                <td className="py-2 px-3 border-r text-center">%{item.discount}</td>
+                                <td className="py-2 px-3 border-r text-center">{item.discount}%</td>
                                 <td className="py-2 px-3 border-r text-center">{(item.description)}</td> 
                                 <td className="py-2 px-3 border-r text-center">{
                                     item.available === 'yes'?
