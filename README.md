@@ -1,4 +1,3 @@
-# GulHub Home
 
 # Gulhub Home
 
